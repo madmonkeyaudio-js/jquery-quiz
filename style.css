@@ -1,10 +1,42 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
+ margin: 0;
+ padding: 0;
+ text-align: center;
+ background: url('https://images.unsplash.com/photo-1531335773500-23410807365a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
 }
 
 h1 {
-  color: chartreuse;
-  text-align: center;
+ color: rgb(70, 66, 22);
+ text-align: center;
+ font-size: 36px;
+}
+
+#endSequence-container {
+    position: absolute;
+    bottom: 0px;
+    height: 200px;
+    width: 100vw;
+    border: 3px solid grey;
+    background: rgb(184, 171, 171);
+    font-size: 35px;
+    color: rgb(102, 99, 56);
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #b3804a);
+}
+button {
+    font-size: 24px;
+    border-radius: 5px;
+    margin: 0px 0px 50px 0px; 
+}
+#answer {
+    color: rgb(252, 252, 252);
+    font-size: 24px;
+    background-color: grey;
+}
+#question {
+    font-size: 20px;
+    margin: 30px 0px;
 }
