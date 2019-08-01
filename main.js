@@ -13,7 +13,7 @@ let questions = [
 },
 {
     prompt: "What is the capital of Texas?",
-    answers: ["Houston", "Dallas", "Austin", "San Antonio"],
+    answers: ["Houston", "Dallas", "Ribs", "San Antonio"],
     correctAnswerIndex: 2,
     state: "texas"
 },
@@ -25,13 +25,13 @@ let questions = [
 },
 {
     prompt: "What is the capital of Washington?",
-    answers: ["Olympia", "Tacoma", "Yakima", "Spokane"],
+    answers: ["Olympia", "Squirrels", "Yakima", "Spokane"],
     correctAnswerIndex: 0,
     state: "washington"
 },
 {
     prompt: "What is the capital of New York?",
-    answers: ["New York City", "Albany", "Ithaca", "Buffalo"],
+    answers: ["New York City", "Albany", "Unique", "I'm walkin ere"],
     correctAnswerIndex: 1,
     state: "new-york"
 },
@@ -49,20 +49,15 @@ $('#endSequence-container').hide();
 //listens for start button click and starts the quiz
 $("#start").click(function() {
     startQuiz();
-    //console.log("Clicked baby");
+  
 })
-
-// $('#reset').on("click", function(e){
-//    e.preventDefault();
-//    console.log('hi');
-//})
-
 $("#next").click(function() {
    //Hides the previous Answer
    $('h3').prev().empty();
     checkAnswer();
     //increases the iterator thereby moving to the next set of questions and answers
     iterator++;
+    
     //empties the div so that the next question can take its place
     $("#question").empty();
     createQuestion();
@@ -77,9 +72,6 @@ function startQuiz() {
         promptArr.push(questions[i].prompt); 
     }
    createQuestion();
-    //creates the next button
-    $("#next").show();
-    
     //hides the start button
     $("#start").hide();
     //create the radio options
@@ -97,9 +89,10 @@ function giveOptions(){
     for (var j = 0; j < questions[iterator].answers.length; j++) {
         console.log(questions[iterator].answers[j])
         var radioBtn = $(`<input type="radio" name="${questions[iterator].state}" value="${j}" />${questions[iterator].answers[j]}<br/>`);
-        radioBtn.appendTo('#question');
+        radioBtn.appendTo('#question').prop('checked', false);
     }
     if($(`input[name='${questions[iterator].state}']:checked`)){
+       console.log('hi')
       $("#next").show();
    }
 }
@@ -129,7 +122,6 @@ function endQuiz(){
       $('#endSequence-container').show();
       scoreResults();
       $('#answer').hide();
-
    }
 
 function scoreResults(){
